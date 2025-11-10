@@ -30,29 +30,42 @@ It allows admins to manage agents, clients, and conversations seamlessly from an
 
 ---
 
-## 🖼️ Screenshots
-
-### 🏠 Dashboard  
-![Dashboard Overview](screenshots/Dashboard.png)
-
-### 👥 Clients Page  
-![Clients Management](screenshots/Clients.png)
-
-### 🤖 Agents Page  
-![Agents Management](screenshots/agents.png)
-
-
-## 💬 WhatsApp Chat Showcase
+## 🖼 BotMaze Dashboard & Pages Showcase
 
 <p align="center">
-  <img src="screenshots/Chat_with_StudyBot.jpg" alt="WhatsApp Chat – StudyBot" width="25%">
-  <img src="screenshots/Chat_with_HealthCoach.jpg" alt="WhatsApp Chat – Health Coach" width="25%">
+  <img src="screenshots/Dashboard.png" alt="Dashboard View" width="70%">
+  <br>
+  <em>📊 Dashboard – View your connected WhatsApp and manage your account.</em>
 </p>
 
 <p align="center">
-  <em>Swipe ➡ (view both screenshots side-by-side like a carousel)</em>
+  <img src="screenshots/agents.png" alt="Agents Page" width="70%">
+  <br>
+  <em>🤖 Agents Page – Create and manage multiple AI-powered agents.</em>
 </p>
 
+<p align="center">
+  <img src="screenshots/Clients.png" alt="Clients Page" width="70%">
+  <br>
+  <em>👥 Clients Page – Assign agents to clients and view latest messages.</em>
+</p>
+
+<p align="center">
+  <img src="screenshots/Create_new_agent.png" alt="Create Agent" width="70%">
+  <br>
+  <em>⚙ Create New Agent – Customize agent name, tone, and base prompt.</em>
+</p>
+
+---
+
+## 💬 WhatsApp Chat Demos
+
+<p align="center">
+  <img src="screenshots/Chat_with_StudyBot.jpg" alt="Chat with StudyBot" width="45%">
+  <img src="screenshots/Chat_with_HealthCoach.jpg" alt="Chat with Health Coach" width="45%">
+  <br>
+  <em>💬 AI Agent Conversations – StudyBot (left) and Health Coach (right).</em>
+</p>
 ---
 
 ## ⚙️ Tech Stack
