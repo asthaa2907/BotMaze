@@ -41,12 +41,17 @@ It allows admins to manage agents, clients, and conversations seamlessly from an
 ### 🤖 Agents Page  
 ![Agents Management](screenshots/agents.png)
 
-### 💬 WhatsApp Chat – StudyBot  
-![Chat Example 1](screenshots/Chat_with_StudyBot.jpg)
 
-### 💬 WhatsApp Chat – Health Coach  
-![Chat Example 2](screenshots/Chat_with_HealthCoach.jpg)
+## 💬 WhatsApp Chat Showcase
 
+<p align="center">
+  <img src="screenshots/Chat_with_StudyBot.jpg" alt="WhatsApp Chat – StudyBot" width="45%">
+  <img src="screenshots/Chat_with_HealthCoach.jpg" alt="WhatsApp Chat – Health Coach" width="45%">
+</p>
+
+<p align="center">
+  <em>Swipe ➡ (view both screenshots side-by-side like a carousel)</em>
+</p>
 
 ---
 
@@ -72,5 +77,6 @@ WHATSAPP_VERIFY_TOKEN=your_meta_verify_token
 WHATSAPP_PHONE_NUMBER_ID=your_meta_phone_number_id
 WHATSAPP_ACCESS_TOKEN=your_permanent_access_token
 DATABASE_URL=sqlite:///./botmaze.db
+
 
 
