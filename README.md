@@ -64,46 +64,6 @@ It allows admins to manage agents, clients, and conversations seamlessly from an
 
 ---
 
-## 🧰 Folder Structure
-BotMaze/
-│
-├── app/
-│ ├── api/
-│ │ ├── whatsapp.py
-│ │ ├── agents.py
-│ │ ├── clients.py
-│ │ └── utils.py
-│ │
-│ ├── core/
-│ │ └── config.py
-│ │
-│ ├── db/
-│ │ ├── models.py
-│ │ └── session.py
-│ │
-│ ├── templates/
-│ │ ├── agents.html
-│ │ ├── clients.html
-│ │ ├── dashboard.html
-│ │ ├── connect_whatsapp.html
-│ │ ├── new_agent.html
-│ │ ├── edit_agent.html
-│ │ ├── agent_updated.html
-│ │ ├── agent_deleted.html
-│ │ ├── chat.html
-│ │ └── base.html
-│ │
-│ └── utils/
-│ ├── auth_utils.py
-│ └── init.py
-│
-├── .env
-├── .gitignore
-├── main.py
-├── botmaze.db
-└── README.md
-
----
 
 ## 🔐 Environment Variables (.env)
 Create a `.env` file in the root directory with the following:
@@ -113,3 +73,4 @@ WHATSAPP_VERIFY_TOKEN=your_meta_verify_token
 WHATSAPP_PHONE_NUMBER_ID=your_meta_phone_number_id
 WHATSAPP_ACCESS_TOKEN=your_permanent_access_token
 DATABASE_URL=sqlite:///./botmaze.db
+
