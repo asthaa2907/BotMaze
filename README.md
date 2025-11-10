@@ -33,21 +33,20 @@ It allows admins to manage agents, clients, and conversations seamlessly from an
 ## 🖼️ Screenshots
 
 ### 🏠 Dashboard  
-![Dashboard Overview](./screenshots/dashboard.png)
+![Dashboard Overview](screenshots/Dashboard.png)
 
 ### 👥 Clients Page  
-![Clients Management](./screenshots/clients.png)
+![Clients Management](screenshots/Clients.png)
 
 ### 🤖 Agents Page  
-![Agents Management](./screenshots/agents.png)
+![Agents Management](screenshots/agents.png)
 
 ### 💬 WhatsApp Chat – StudyBot  
-![Chat Example 1](./screenshots/chat_studybot.png)
+![Chat Example 1](screenshots/Chat_with_StudyBot.jpg)
 
 ### 💬 WhatsApp Chat – Health Coach  
-![Chat Example 2](./screenshots/chat_healthcoach.png)
+![Chat Example 2](screenshots/Chat_with_HealthCoach.jpg)
 
-> You can upload your screenshots to the `/screenshots/` folder in your repository and update the file names accordingly.
 
 ---
 
@@ -73,4 +72,5 @@ WHATSAPP_VERIFY_TOKEN=your_meta_verify_token
 WHATSAPP_PHONE_NUMBER_ID=your_meta_phone_number_id
 WHATSAPP_ACCESS_TOKEN=your_permanent_access_token
 DATABASE_URL=sqlite:///./botmaze.db
+
 
