@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Connect WhatsApp - BotMaze</title>
+  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+</head>
+<body class="bg-gray-50 text-gray-800 p-10">
+  <!-- 🔝 Navigation -->
+  <nav class="bg-indigo-600 text-white p-4 rounded-lg flex justify-between items-center shadow-md mb-8">
+    <div class="text-xl font-semibold">🤖 BotMaze Agents</div>
+    <div class="space-x-6">
+      <a href="/dashboard" class="hover:text-gray-200">Dashboard</a>
+       <a href="/dashboard/clients" class="hover:hover:text-gray-200">Clients</a>
+      <a href="/dashboard/agents" class="hover:text-gray-200 font-semibold">Agents</a>
+      <a href="/dashboard/agents/new" class="hover:text-gray-200">Create Agent</a>
+      <a href="/logout" class="bg-red-500 hover:bg-red-600 px-3 py-1 rounded">Logout</a>
+    </div>
+  </nav>
+  
+{% if token_display %}
+<div class="bg-green-100 border border-green-300 rounded-lg p-4 mb-6 shadow-sm relative">
+    <h2 class="text-green-700 font-semibold text-lg mb-2">✅ WhatsApp Connected Successfully</h2>
+    <p><strong>Token:</strong> {{ token_display or 'Not available'}}</p>
+    <p><strong>Phone ID:</strong> {{ whatsapp_phone_id }}</p>
+    <p><strong>Number:</strong> {{ whatsapp_number }}</p>
+    <p class="text-gray-600 text-sm mt-2">You can disconnect your WhatsApp account below.</p>
+
+    <!-- Disconnect button (bottom right) -->
+    <form method="post" action="/dashboard/disconnect-whatsapp" class="absolute bottom-3 right-3">
+        <button type="submit" class="bg-red-500 hover:bg-red-600 text-white px-4 py-2 rounded">
+            Disconnect
+        </button>
+    </form>
+</div>
+{% else %}
+<div class="bg-yellow-100 border border-yellow-300 rounded-lg p-4 mb-6 shadow-sm">
+    <p class="text-yellow-700 font-medium">
+        ⚠️ No WhatsApp Account Connected — connect below.
+    </p>
+</div>
+{% endif %}
+
+
+  <!-- Main Content -->
+  <div class="max-w-2xl mx-auto bg-white rounded-lg shadow-lg p-8">
+    
+    <!-- Card Container -->
+    <div class="bg-gray-50 rounded-xl shadow-inner p-8 border border-gray-200">
+      <h2 class="text-2xl font-bold text-purple-700 mb-6 text-center">Connect Your WhatsApp Account</h2>
+
+      <form action="/dashboard/connect-whatsapp" method="post" class="space-y-6">
+
+        <!-- WhatsApp Access Token -->
+        <div>
+          <label class="block text-gray-700 font-semibold mb-1">WhatsApp Access Token</label>
+          <input 
+            type="text" 
+            name="whatsapp_token" 
+            placeholder="Enter your WhatsApp API token" 
+            value="" 
+            class="border border-gray-300 p-3 w-full rounded-md focus:ring-2 focus:ring-purple-500 focus:border-purple-500 transition"
+            required
+          >
+        </div>
+
+        <!-- WhatsApp Phone ID -->
+        <div>
+          <label class="block text-gray-700 font-semibold mb-1">WhatsApp Phone Number ID</label>
+          <input 
+            type="text" 
+            name="whatsapp_phone_id" 
+            placeholder="Enter your WhatsApp Phone Number ID" 
+            value="" 
+            class="border border-gray-300 p-3 w-full rounded-md focus:ring-2 focus:ring-purple-500 focus:border-purple-500 transition"
+            required
+          >
+        </div>
+
+        <!-- WhatsApp Number -->
+        <div>
+          <label class="block text-gray-700 font-semibold mb-1">WhatsApp Number (optional)</label>
+          <input 
+            type="text" 
+            name="whatsapp_number" 
+            placeholder="+14155238886" 
+            value="" 
+            class="border border-gray-300 p-3 w-full rounded-md focus:ring-2 focus:ring-purple-500 focus:border-purple-500 transition"
+          >
+          <p class="text-gray-500 text-sm mt-1">You can leave this blank — it will be fetched automatically if available.</p>
+        </div>
+
+        <!-- Buttons -->
+        <div class="flex justify-between items-center pt-6">
+          <button 
+            type="submit" 
+            class="bg-purple-600 text-white px-5 py-2 rounded-md hover:bg-purple-700 transition">
+            Connect WhatsApp
+        </button>
+        </div>
+      </form>
+    </div>
+  </div>
+<!-- ✨ Footer -->
+  <footer class="text-center text-gray-500 text-sm mt-12 pb-6">
+    Built using <span class="text-indigo-600 font-medium">BotMaze</span> | AI Assistant Platform
+  </footer>
+
+</body>
+</html>

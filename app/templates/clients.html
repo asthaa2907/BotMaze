@@ -1,0 +1,74 @@
+{% extends "base.html" %}
+{% block content %}
+
+<!-- 📋 Clients Table Container -->
+  <div class="max-w-7xl mx-auto mt-12 bg-white rounded-2xl shadow-md p-10 mb-12">
+  <div class="flex justify-between items-center mb-8">
+    <h2 class="text-2xl font-semibold text-indigo-700">Manage Your Clients</h2>
+    <div class="text-sm text-gray-500">Total Clients: {{ clients|length }}</div>
+  </div>
+
+      {% if clients %}
+      <div class="overflow-x-auto">
+    <table class="min-w-full bg-white border border-gray-200 rounded-lg overflow-hidden shadow-sm">
+      <thead class="bg-indigo-100 text-indigo-800">
+            <tr>
+              <th class="py-3 px-4 text-left">ID</th>
+              <th class="py-3 px-4 text-left">Name</th>
+              <th class="py-3 px-4 text-left">Phone</th>
+              <th class="py-3 px-4 text-left">Last Message</th>
+              <th class="py-3 px-4 text-left">Assigned Agent</th>
+              <th class="py-3 px-4 text-left">Actions</th>
+            </tr>
+          </thead>
+          <tbody class="divide-y divide-gray-200 text-gray-700">
+            {% for client in clients %}
+            <tr class="hover:bg-gray-50 transition">
+              <td class="py-3 px-4">{{ client.id }}</td>
+              <td class="py-3 px-4 font-medium text-indigo-700 capitalize">{{ client.name or "Unknown" }}</td>
+              <td class="py-3 px-4">+{{ client.phone }}</td>
+              <td class="py-3 px-4">{{ client.last_message or "-" }}</td>
+
+              <!-- Assigned Agent Dropdown -->
+              <td class="py-3 px-4">
+                <form action="/dashboard/clients/assign_agent" method="post" class="flex items-center space-x-2">
+                  <input type="hidden" name="client_id" value="{{ client.id }}">
+                  <select name="agent_id" class="border rounded-md px-2 py-1 text-gray-700 focus:ring-indigo-500 focus:border-indigo-500">
+                    {% for agent in agents %}
+                    <option value="{{ agent.id }}" {% if client.agent_id == agent.id %}selected{% endif %}>
+                      {{ agent.name }}
+                    </option>
+                    {% endfor %}
+                  </select>
+                  <button type="submit" class="bg-indigo-600 text-white text-sm px-3 py-1 rounded-md hover:bg-indigo-700 transition">
+                    Assign
+                  </button>
+                </form>
+              </td>
+
+              <!-- Assigned Agent Name -->
+              <td class="py-3 px-4">
+                {% if client.agent_id %}
+                  {% set agent = agents | selectattr('id', 'equalto', client.agent_id) | first %}
+                  <span class="text-green-700 font-medium">{{ agent.name if agent else 'N/A' }}</span>
+                {% else %}
+                  <span class="text-gray-500 italic">Not assigned</span>
+                {% endif %}
+              </td>
+            </tr>
+            {% endfor %}
+          </tbody>
+        </table>
+      </div>
+      {% else %}
+        <p class="text-gray-500 text-center mt-6">No clients available yet. Once users send WhatsApp messages, they will appear here.</p>
+      {% endif %}
+    </div>
+  </div>
+
+<!-- ✨ Footer -->
+  <footer class="text-center text-gray-500 text-sm mt-12 pb-6">
+    Built using <span class="text-indigo-600 font-medium">BotMaze</span> | AI Assistant Platform
+  </footer>
+
+{% endblock %}

@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Create New Agent - BotMaze</title>
+  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+</head>
+
+<body class="bg-gray-50 text-gray-800 p-10">
+
+  <!-- 🔝 Navigation Bar -->
+  <nav class="bg-indigo-600 text-white p-4 rounded-lg flex justify-between items-center shadow-md mb-10">
+    <div class="text-xl font-semibold">🤖 Create Agent</div>
+    <div class="space-x-6">
+      <a href="/dashboard" class="hover:text-gray-200 font-semibold">Dashboard</a>
+      <a href="/dashboard/agents" class="hover:text-gray-200">Agents</a>
+      <a href="/dashboard/connect-whatsapp" class="hover:text-gray-200">Connect WhatsApp</a>
+      <a href="/logout" class="bg-red-500 hover:bg-red-600 px-3 py-1 rounded">Logout</a>
+    </div>
+  </nav>
+
+  <!-- 🧠 Create Agent Form -->
+  <div class="max-w-2xl mx-auto bg-white rounded-lg shadow-lg p-8">
+    <h2 class="text-2xl font-bold text-indigo-700 mb-6">🧠 Create a New Agent</h2>
+
+    <form action="/dashboard/agents/new" method="post" class="space-y-4">
+      <!-- Name -->
+      <div>
+        <label class="block text-sm font-semibold text-gray-700 mb-1">Agent Name</label>
+        <input type="text" name="name" placeholder="Enter agent name"
+               class="border border-gray-300 p-2 w-full rounded-md focus:outline-none focus:ring-2 focus:ring-indigo-400" required>
+      </div>
+
+      <!-- Personality -->
+      <div>
+        <label class="block text-sm font-semibold text-gray-700 mb-1">Personality</label>
+        <select name="personality" class="border border-gray-300 p-2 w-full rounded-md focus:outline-none focus:ring-2 focus:ring-indigo-400">
+          <option value="neutral">Neutral</option>
+          <option value="friendly">Friendly</option>
+          <option value="professional">Professional</option>
+          <option value="humorous">Humorous</option>
+        </select>
+      </div>
+
+      <!-- Base Prompt -->
+      <div>
+        <label class="block text-sm font-semibold text-gray-700 mb-1">Base Prompt</label>
+        <textarea name="base_prompt" rows="6" placeholder="Describe your agent's behavior..."
+                  class="border border-gray-300 p-2 w-full rounded-md focus:outline-none focus:ring-2 focus:ring-indigo-400" required></textarea>
+      </div>
+
+      <!-- Submit Button -->
+      <div class="flex justify-between items-center mt-6">
+        <a href="/dashboard/agents" class="text-indigo-600 hover:underline">← Back to Agents</a>
+        <button type="submit" class="bg-indigo-600 hover:bg-indigo-700 text-white px-6 py-2 rounded-md shadow">
+          Create Agent
+        </button>
+      </div>
+    </form>
+  </div>
+<!-- ✨ Footer -->
+  <footer class="text-center text-gray-500 text-sm mt-12 pb-6">
+    Built using <span class="text-indigo-600 font-medium">BotMaze</span> | AI Assistant Platform
+  </footer>
+
+</body>
+</html>

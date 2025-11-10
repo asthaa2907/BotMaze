@@ -1,0 +1,34 @@
+# Python cache and bytecode
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+*.log
+
+# Virtual environment
+venv/
+.env
+.env.*
+
+# Database files
+*.db
+botmaze.db
+
+# IDE and editor settings
+.vscode/
+.idea/
+*.code-workspace
+
+# OS-generated files
+.DS_Store
+Thumbs.db
+
+# Uvicorn and FastAPI cache
+*.pid
+
+# Build files
+dist/
+build/
+
+# Jupyter / VS Code notebooks (if any)
+*.ipynb_checkpoints

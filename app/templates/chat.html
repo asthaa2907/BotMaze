@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Chat - BotMaze</title>
+  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+</head>
+
+<body class="bg-gray-50 text-gray-800 p-10">
+
+  <!-- 🔝 Navigation Bar -->
+  <nav class="bg-indigo-600 text-white p-4 rounded-lg flex justify-between items-center shadow-md mb-8">
+    <div class="text-xl font-semibold">💬 Chat Viewer</div>
+    <div class="space-x-6">
+      <a href="/dashboard" class="hover:text-gray-200">Dashboard</a>
+      <a href="/dashboard/agents" class="hover:text-gray-200 font-semibold">Agents</a>
+      <a href="/dashboard/connect-whatsapp" class="hover:text-gray-200">Connect WhatsApp</a>
+      <a href="/logout" class="bg-red-500 hover:bg-red-600 px-3 py-1 rounded">Logout</a>
+    </div>
+  </nav>
+
+  <!-- 🧠 Chat Header -->
+  <div class="max-w-3xl mx-auto bg-white shadow-lg rounded-lg p-6">
+    <h2 class="text-2xl font-bold text-indigo-700 mb-2">Chat with {{ user.name }}</h2>
+    <p class="text-gray-500 mb-4">📞 {{ user.phone }}</p>
+    {% if user.active_agent %}
+      <p class="text-sm text-green-600 mb-4">🟢 Active Agent: {{ user.active_agent }}</p>
+    {% else %}
+      <p class="text-sm text-yellow-600 mb-4">⚠️ No Active Agent Assigned</p>
+    {% endif %}
+
+    <!-- 💬 Chat Box -->
+    <div class="border border-gray-200 rounded-lg p-4 h-[500px] overflow-y-auto bg-gray-50">
+      {% for msg in messages %}
+        {% if msg.sender == "user" %}
+          <div class="flex justify-end mb-2">
+            <div class="bg-indigo-600 text-white px-4 py-2 rounded-lg max-w-lg">
+              {{ msg.text }}
+            </div>
+          </div>
+        {% else %}
+          <div class="flex justify-start mb-2">
+            <div class="bg-gray-200 text-gray-900 px-4 py-2 rounded-lg max-w-lg">
+              {{ msg.text }}
+            </div>
+          </div>
+        {% endif %}
+      {% endfor %}
+    </div>
+
+    <!-- 🔙 Back Button -->
+    <div class="flex justify-between items-center mt-6">
+      <a href="/dashboard" class="text-indigo-600 hover:underline">← Back to Dashboard</a>
+    </div>
+  </div>
+<footer class="text-center text-gray-500 text-sm mt-12 pb-6">
+    Built using <span class="text-indigo-600 font-medium">BotMaze</span> | AI Assistant Platform
+  </footer>
+</body>
+</html>

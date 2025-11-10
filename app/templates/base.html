@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>BotMaze Agents</title>
+  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+</head>
+
+<body class="bg-gray-50 text-gray-800 p-10">
+  <!-- 🔝 Navigation -->
+  <nav class="bg-indigo-600 text-white p-4 rounded-lg flex justify-between items-center shadow-md mb-8">
+    <div class="text-xl font-semibold">🤖 BotMaze Clients</div>
+    <div class="space-x-6">
+      <a href="/dashboard" class="hover:text-gray-200">Dashboard</a>
+       <a href="/dashboard/clients" class="hover:hover:text-gray-200 font-semibold">Clients</a>
+      <a href="/dashboard/agents" class="hover:text-gray-200">Agents</a>
+      <a href="/dashboard/agents/new" class="hover:text-gray-200">Create Agent</a>
+      <a href="/logout" class="bg-red-500 hover:bg-red-600 px-3 py-1 rounded">Logout</a>
+    </div>
+  </nav>
+
+
+<div class="container mt-4">
+    {% block content %}
+    {% endblock %}
+</div>
+
+</body>
+</html>

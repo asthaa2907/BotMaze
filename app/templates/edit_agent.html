@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Edit Agent - BotMaze</title>
+  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+</head>
+
+<body class="bg-gray-50 text-gray-800 p-10">
+
+  <!-- 🔝 Navigation -->
+  <nav class="bg-indigo-600 text-white p-4 rounded-lg flex justify-between items-center shadow-md mb-8">
+    <div class="text-xl font-semibold">✏️ Edit Agent</div>
+    <div class="space-x-6">
+      <a href="/dashboard" class="hover:text-gray-200">Dashboard</a>
+      <a href="/dashboard/agents" class="hover:text-gray-200 font-semibold">Agents</a>
+      <a href="/logout" class="bg-red-500 hover:bg-red-600 px-3 py-1 rounded">Logout</a>
+    </div>
+  </nav>
+
+  <!-- ✏️ Edit Agent Form -->
+  <div class="max-w-xl mx-auto bg-white shadow-md rounded-lg p-8">
+    <h2 class="text-2xl font-semibold mb-6 text-indigo-700">Update Agent: {{ agent.name }}</h2>
+
+    <form action="/dashboard/agents/edit/{{ agent.id }}" method="post" class="space-y-4">
+
+      <div>
+        <label class="block text-gray-700 font-medium mb-1">Agent Name</label>
+        <input type="text" name="name" value="{{ agent.name }}" class="w-full border rounded px-3 py-2 focus:ring focus:ring-indigo-200" required>
+      </div>
+
+      <div>
+        <label class="block text-gray-700 font-medium mb-1">Personality</label>
+        <select name="personality" class="w-full border rounded px-3 py-2 focus:ring focus:ring-indigo-200">
+          <option value="neutral" {% if agent.personality == 'neutral' %}selected{% endif %}>Neutral</option>
+          <option value="friendly" {% if agent.personality == 'friendly' %}selected{% endif %}>Friendly</option>
+          <option value="professional" {% if agent.personality == 'professional' %}selected{% endif %}>Professional</option>
+          <option value="humorous" {% if agent.personality == 'humorous' %}selected{% endif %}>Humorous</option>
+        </select>
+      </div>
+
+      <div>
+        <label class="block text-gray-700 font-medium mb-1">Base Prompt</label>
+        <textarea name="base_prompt" rows="6" class="w-full border rounded px-3 py-2 focus:ring focus:ring-indigo-200" required>{{ agent.base_prompt }}</textarea>
+      </div>
+
+      <div class="flex justify-between items-center mt-6">
+        <a href="/dashboard/agents" class="text-indigo-600 hover:underline">← Back to Agents</a>
+        <button type="submit" class="bg-indigo-600 text-white px-5 py-2 rounded hover:bg-indigo-700 transition">
+          💾 Save Changes
+        </button>
+      </div>
+    </form>
+  </div>
+<!-- ✨ Footer -->
+  <footer class="text-center text-gray-500 text-sm mt-12 pb-6">
+    Built using <span class="text-indigo-600 font-medium">BotMaze</span> | AI Assistant Platform
+  </footer>
+
+</body>
+</html>

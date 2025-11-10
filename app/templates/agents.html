@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>BotMaze Agents</title>
+  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+</head>
+
+<body class="bg-gray-50 text-gray-800 p-10">
+  <!-- 🔝 Navigation -->
+  <nav class="bg-indigo-600 text-white p-4 rounded-lg flex justify-between items-center shadow-md mb-8">
+    <div class="text-xl font-semibold">🤖 BotMaze Agents</div>
+    <div class="space-x-6">
+      <a href="/dashboard" class="hover:text-gray-200">Dashboard</a>
+       <a href="/dashboard/clients" class="hover:hover:text-gray-200">Clients</a>
+      <a href="/dashboard/agents" class="hover:text-gray-200 font-semibold">Agents</a>
+      <a href="/dashboard/agents/new" class="hover:text-gray-200">Create Agent</a>
+      <a href="/logout" class="bg-red-500 hover:bg-red-600 px-3 py-1 rounded">Logout</a>
+    </div>
+  </nav>
+
+  <!-- 💼 Agents Table Section -->
+  <div class="max-w-6xl mx-auto mt-12 bg-white p-8 rounded-2xl shadow-lg border border-gray-200">
+    <div class="flex justify-between items-center mb-6">
+      <h2 class="text-3xl font-semibold text-indigo-700">Available Agents</h2>
+      <a href="/dashboard/agents/new"
+         class="bg-indigo-600 hover:bg-indigo-700 text-white px-4 py-2 rounded-lg shadow-sm transition font-medium">
+         ➕ Add New Agent
+      </a>
+    </div>
+
+    {% if agents %}
+    <div class="overflow-x-auto">
+      <table class="min-w-full border border-gray-200 rounded-lg">
+        <thead class="bg-indigo-100 text-indigo-800 text-sm uppercase tracking-wide">
+          <tr>
+            <th class="py-3 px-4 text-left">ID</th>
+            <th class="py-3 px-4 text-left">Name</th>
+            <th class="py-3 px-4 text-left">Personality</th>
+            <th class="py-3 px-4 text-left">Prompt (Preview)</th>
+            <th class="py-3 px-4 text-left">Status</th>
+            <th class="py-3 px-4 text-center">Actions</th>
+          </tr>
+        </thead>
+        <tbody class="divide-y divide-gray-200 text-gray-700">
+          {% for agent in agents %}
+          <tr class="hover:bg-gray-50 transition">
+            <td class="py-3 px-4">{{ agent.id }}</td>
+            <td class="py-3 px-4 font-semibold text-indigo-700">{{ agent.name }}</td>
+            <td class="py-3 px-4 capitalize">{{ agent.personality }}</td>
+            <td class="py-3 px-4 text-gray-600">
+              {{ agent.base_prompt[:45] ~ ('...' if agent.base_prompt|length > 45 else '') }}
+            </td>
+            <td class="py-3 px-4">
+              {% if agent.is_active %}
+                <span class="inline-flex items-center bg-green-100 text-green-800 text-xs font-semibold px-3 py-1 rounded-full">
+                  🟢 Active
+                </span>
+              {% else %}
+                <span class="inline-flex items-center bg-gray-200 text-gray-700 text-xs font-semibold px-3 py-1 rounded-full">
+                  ⚪ Inactive
+                </span>
+              {% endif %}
+            </td>
+
+            <td class="py-3 px-4 flex justify-center items-center space-x-2">
+              <a href="/dashboard/agents/edit/{{ agent.id }}"
+                 class="bg-blue-500 hover:bg-blue-600 text-white px-3 py-1.5 rounded-md text-sm font-medium transition">Edit</a>
+              <a href="/dashboard/agents/delete/{{ agent.id }}"
+                 class="bg-red-500 hover:bg-red-600 text-white px-3 py-1.5 rounded-md text-sm font-medium transition">Delete</a>
+              {% if agent.is_active %}
+                <form action="/dashboard/agents/{{ agent.id }}/deactivate" method="post" class="inline">
+                  <button type="submit"
+                    class="bg-yellow-500 hover:bg-yellow-600 text-white px-3 py-1.5 rounded-md text-sm font-medium transition">
+                    Deactivate
+                  </button>
+                </form>
+              {% else %}
+                <form action="/dashboard/agents/{{ agent.id }}/activate" method="post" class="inline">
+                  <button type="submit"
+                    class="bg-green-600 hover:bg-green-700 text-white px-3 py-1.5 rounded-md text-sm font-medium transition">
+                    Activate
+                  </button>
+                </form>
+              {% endif %}
+            </td>
+          </tr>
+          {% endfor %}
+        </tbody>
+      </table>
+    </div>
+    {% else %}
+      <p class="text-gray-500 text-center mt-8">No agents created yet. Click “Add New Agent” to begin 🤖</p>
+    {% endif %}
+  </div>
+
+ <footer class="text-center text-gray-500 text-sm mt-12 pb-6">
+    Built using <span class="text-indigo-600 font-medium">BotMaze</span> | AI Assistant Platform
+  </footer>
+
+</body>
+</html>
