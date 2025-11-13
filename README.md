@@ -61,7 +61,7 @@ It allows admins to manage agents, clients, and conversations seamlessly from an
 <p align="center">
   <img src="screenshots/Connect whatsapp.png" alt="Connect Your WhatsApp" width="70%">
   <br>
-  <em>⚙ Create New Agent – Customize agent name, tone, and base prompt.</em>
+  <em>⚙ Connect your WhatsApp through Access Token and Phone Number ID - Succesful WhatsApp API Connection.</em>
 </p>
 ---
 
