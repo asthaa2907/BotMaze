@@ -58,6 +58,13 @@ It allows admins to manage agents, clients, and conversations seamlessly from an
 
 ---
 
+<p align="center">
+  <img src="screenshots/Connect whatsapp.png" alt="Connect Your WhatsApp" width="70%">
+  <br>
+  <em>⚙ Create New Agent – Customize agent name, tone, and base prompt.</em>
+</p>
+---
+
 ## 💬 WhatsApp Chat Demos
 
 <p align="center">
@@ -90,6 +97,7 @@ WHATSAPP_VERIFY_TOKEN=your_meta_verify_token
 WHATSAPP_PHONE_NUMBER_ID=your_meta_phone_number_id
 WHATSAPP_ACCESS_TOKEN=your_permanent_access_token
 DATABASE_URL=sqlite:///./botmaze.db
+
 
 
 
