@@ -1,4 +1,4 @@
-# 🤖 BotMaze – AI WhatsApp Assistant Platform
+# 🤖 BotMaze – Whatsapp AI Agent Management System
 
 BotMaze is an AI-powered WhatsApp automation platform where multiple chat agents can be created, customized, and assigned to clients dynamically.  
 It allows admins to manage agents, clients, and conversations seamlessly from an intuitive dashboard built using **FastAPI**, **Jinja2**, and **TailwindCSS**.
@@ -97,6 +97,7 @@ WHATSAPP_VERIFY_TOKEN=your_meta_verify_token
 WHATSAPP_PHONE_NUMBER_ID=your_meta_phone_number_id
 WHATSAPP_ACCESS_TOKEN=your_permanent_access_token
 DATABASE_URL=sqlite:///./botmaze.db
+
 
 
 
